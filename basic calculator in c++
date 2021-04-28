@@ -1,0 +1,78 @@
+#include <bits/stdc++.h>
+using namespace std;
+  
+
+void menu()
+{
+    cout << "**************************************";
+    cout << "\n1.Addition of two numbers \n";
+    cout << "\n2.Subtraction of two numbers \n";
+    cout << "\n3.Multiplication of two numbers\n";
+    cout << "\n4.Divison of two numbers\n";
+    cout << "\n5.GCD of two numbers\n";
+    cout<<  "\n6.LCM of two numbers \n";
+  
+    cout << "**************************************";
+}
+  
+void result(int choice, int a, int b)
+{
+  
+    
+    switch (choice) {
+    case 1: {
+        cout << "Sum is " << (a + b) << "\n";
+        break;
+    }
+    case 2: {
+        cout << "Difference is " << (a - b) << "\n";
+        break;
+    }
+    case 3: {
+        cout << "Product is " << (a * b) << "\n";
+        break;
+    }
+    case 4: {
+        cout << "Division is " << (a / b) << "\n";
+        break;
+    }
+    case 5: {
+        cout << "GCD is " << __gcd(a, b) << "\n";
+        break;
+    }
+    case 6: {
+        cout << "LCM is "
+             << ((a * b) / __gcd(a, b))
+             << "\n";
+        break;
+    }
+   
+    default:
+        printf("Wrong Input\n");
+    }
+}
+  
+int main()
+{
+ int a,b;
+  
+    int choice, res;
+  
+     
+    menu();
+  
+    cout << "\nEnter your choice:\n";
+    cin>>choice;
+    cout << "Choice is " << choice << endl;
+
+    cout<<"Enter two numbers:-";
+    cin>>a>>b;
+     
+     
+
+  
+    
+    result(choice, a, b);
+  
+    return 0;
+}
