@@ -1,0 +1,328 @@
+#include<iostream>
+#include<string.h>
+#include <fstream>
+using namespace std;
+class store
+{
+ int i,choice,count,sr,ch,per,total;
+ float a,qty[100];
+ char flag;
+ string item[100];
+ float price[100];
+ public:
+ void list();
+ void display();
+ void edit();
+ void save();
+};
+
+
+void store::list()
+{
+ cout<<"LIST:\n1] Onion\t 25rs/kg\n2]Tomato\t 20rs/kg\n3]Potato\t 18rs/kg\n4]bottleground\t 10rs/piece\n5]ladyfinger\t 30rs/kg\n6]cabbage\t 15rs/piece \n7]caulliflower \t20rs/piece\n8]bitterground\t 17rs/kg\n9]cucumber\t40rs/kg\n10]corn\t 25rs/kg\n\n";
+
+
+ cout<<"*******************************************************************\n";
+     i=0;
+ do
+     {
+      cout<<"Enter the choice number of vegetables you want to buy\n";
+      cin>>choice;
+     cout<<"\n********************************************\n";
+      if(choice==1)
+       {
+         item[i]="Onion_";
+          cout<<"How many kg's of onion you want to buy\n";
+          cin>>a;
+          qty[i]=a;
+		  price[i]=25*a;
+          }
+         if(choice==2)
+       {
+        item[i]="Tomato__";
+         cout<<"How many kg's of Tomato you want to buy\n";
+          cin>>a;
+          qty[i]=a;
+		   price[i]=20*a;    
+          }
+       if(choice==3)
+       {
+         item[i]="Potato__";
+          cout<<"How many kg's of Potato you want to buy\n";
+          cin>>a;
+          qty[i]=a;
+		  price[i]=18*a;     
+          }
+        
+		  if(choice==4)
+       {
+         item[i]="Bottleground__";
+          cout<<"How many piece of Bottleground you want to buy\n";
+          cin>>a;
+          qty[i]=a;
+		  price[i]=10*a;     
+          }
+       if(choice==5)
+       {
+         item[i]="ladyfinger__";
+          cout<<"How many kg's of ladyfinger you want to buy\n";
+          cin>>a;
+          qty[i]=a;
+		  price[i]=30*a;     
+          }
+      if(choice==6)
+   {
+         item[i]="cabbage _";
+          cout<<"How many piece of cabbage you want to buy\n";
+          cin>>a;
+          qty[i]=a;  
+		  price[i]=15*a;   
+          }
+          if(choice==7)
+       {
+         item[i]="caulliflower";
+          cout<<"How many  piece of caulliflower you want to buy\n";
+          cin>>a;
+          qty[i]=a;
+		  price[i]=20*a;     
+          }
+          if(choice==8)
+       {
+         item[i]="bitter ground  _";
+          cout<<"How many kg's of bitterground you want to buy\n";
+          cin>>a;
+          qty[i]=a;  
+		  price[i]=17*a;   
+          }
+           if(choice==9)
+   {
+         item[i]="cucumber _";
+          cout<<"How many kg's of cucumber you want to buy\n";
+          cin>>a;
+          qty[i]=a;  
+		  price[i]=40*a;   
+          }
+           if(choice==10)
+   {
+         item[i]="corn _";
+          cout<<"How many kg's of corn you want to buy\n";
+          cin>>a;
+          qty[i]=a;  
+		  price[i]=25*a;   
+          }
+        cout<<"\n*****************************************\nDo you want to make any other choices?(y/n)\n";
+        cin>>flag;
+          if(flag=='y')
+            {
+               i++;
+               }
+         }while(flag=='y');
+ }
+
+
+void store::save()
+{
+	string sname;
+	float sqty,sprice;
+		ofstream save("Bills.txt",ios::app);
+       	save<<"\nSHREE SUPER MARKET"<<endl;
+      	save<<"ITEM\t\t\t QUANTITY \t\t PRICE\n";
+		for(int l=0;l<=i;l++)
+		{
+			sname=item[l];
+			sqty=qty[l];
+			sprice=price[l];
+			save<<sname<<"\t\t\t"<<sqty<<"\t\t"<<sprice<<endl;
+		}
+		save<<"Total price paid Rs.:"<<total<<endl;
+}  
+
+
+
+ void store::edit()
+     {
+        cout<<"\n\n**************************************************\nwould you like to add / delete any items form the list\n";
+              do
+               {
+                cout<<"Press\n1]To add an element\n2]To delete an element\n3]skip\n";
+                cin>>ch;
+                    if(ch==3)
+                        {
+                           break;
+                           
+                         }
+                         
+                  if(ch==1)
+                    {
+                       i++;
+                         do
+                              {
+                               cout<<"Enter the choice number VEGETABLES  you want to buy\n";
+                               cin>>choice;
+                                if(choice==1)
+                               {
+       									  item[i]="Onion_";
+       								   cout<<"How many kg's of onion you want to buy\n";
+         							    cin>>a;
+        							   qty[i]=a;
+		 							   price[i]=25*a;   
+         					 }
+                                 if(choice==2)
+         {     
+          			item[i]="Tomato__";
+         			cout<<"How many kg's of Tomato you want to buy\n";
+                    cin>>a;
+         			qty[i]=a;
+		  			price[i]=20*a;    
+       	 }
+                               if(choice==3)
+      	 {
+        			 item[i]="Potato__";
+         			 cout<<"How many kg's of Potato you want to buy\n";
+        			  cin>>a;
+        			  qty[i]=a;
+					  price[i]=18*a;     
+          }
+                          if(choice==4)
+       {
+         item[i]="Bottleground__";
+          cout<<"How many piece of Bottleground you want to buy\n";
+          cin>>a;
+          qty[i]=a;
+		  price[i]=10*a;     
+          }
+       if(choice==5)
+       {
+         item[i]="ladyfinger__";
+          cout<<"How many kg's of ladyfinger you want to buy\n";
+          cin>>a;
+          qty[i]=a;
+		  price[i]=30*a;     
+          }
+      if(choice==6)
+   {
+         item[i]="cabbage _";
+          cout<<"How many piece of cabbage you want to buy\n";
+          cin>>a;
+          qty[i]=a;  
+		  price[i]=15*a;   
+          }
+          if(choice==7)
+       {
+         item[i]="caulliflower";
+          cout<<"How many  piece of caulliflower you want to buy\n";
+          cin>>a;
+          qty[i]=a;
+		  price[i]=20*a;     
+          }
+          if(choice==8)
+       {
+         item[i]="bitter ground  _";
+          cout<<"How many kg's of bitterground you want to buy\n";
+          cin>>a;
+          qty[i]=a;  
+		  price[i]=17*a;   
+          }
+           if(choice==9)
+   {
+         item[i]="cucumber _";
+          cout<<"How many kg's of cucumber you want to buy\n";
+          cin>>a;
+          qty[i]=a;  
+		  price[i]=40*a;   
+          }
+           if(choice==10)
+   {
+         item[i]="corn _";
+          cout<<"How many kg's of corn you want to buy\n";
+          cin>>a;
+          qty[i]=a;  
+		  price[i]=25*a;   
+          }
+  
+        cout<<"\nDo you want to continue with adding element to the list?(y/n)\n";
+        cin>>flag;
+          if(flag=='y')
+            {
+               i++;
+               }
+         }while(flag=='y');
+    display();
+  }
+          
+int ed,swap,c,j;
+float out,*ptr;
+ 
+    
+          if(ch==2)
+           { 
+               do
+                    {
+                    	 cout<<"\n\n************************************\nEnter the serial number of Item you want to delete\n";
+                    cin>>ed;
+                        c=ed;
+                        ed=ed-1;
+                        item[ed].clear();
+                        qty[ed];
+                        price[ed];
+                         for(j=ed;j<=i;j++)
+                             {
+                              item[ed]=item[c];
+                              qty[ed]=qty[c];
+                              price[ed]=price[ed];
+                              ed++;c++;
+                              }
+                         i--;
+                     cout<<"Do you want to continue with deleting process?(y/n)\n";
+                     cin>>flag;
+                    }while(flag=='y');
+               }
+             cout<<"\n\nDo you want to continue with adding or deleting the list?(y/n)\n";
+          cin>>flag;
+          }while(flag=='y');
+          per=1;
+          
+  }
+  
+    
+     void store::display()
+      {
+      	total=0;
+          sr=1;
+          cout<<"\n\n***************************************************\n\n";
+         cout<<"ITEM\t\t\t QUANTITY \t\t PRICE\n";
+          for(count=0;count<=i;count++)
+           {
+               cout<<sr<<"]"<<item[count]<<"\t\t\t"<<qty[count]<<"\t\t"<<price[count]<<endl; 
+                sr++;              
+               }
+               cout<<"\n**************************************************\n";
+               if(per==1)
+               {
+               for(int k=0;k<=i;k++)
+               {
+               	total=price[k]+total;
+			   }
+			   cout<<"Total price you need to pay:"<<total<<"Rs\n";
+			   
+			}
+			cout<<" please pay your bill when you get your vegetables\n";
+			cout<<"Thank you for shopping with us!!";
+			
+			
+      }
+   
+   
+   
+     int main()
+     {
+      store s;
+         cout<<"Welcome to SHREYASH ONLINE VEGETABLE MARKET->->\n";
+         cout<<"\nEat Healty,Stay Healty\n";
+          s.list();
+            s.display();
+              s.edit();
+          s.display();
+          s.save();
+               return 0;
+ } 
