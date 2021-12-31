@@ -1,0 +1,139 @@
+#include<iostream>
+#include<list>
+using namespace std;
+
+int main()
+{
+	list <int> stack1;
+	list <int> que1;
+	int element,ch,ch1,ch2;
+	char ans,ans1,ans2;
+	list <int>::iterator itre;
+	do{
+	cout<<"What do you wish to create?\n";
+	cout<<"1.Stack\n2.Queue\n";
+	cout<<"Please enter your choice\n";
+	cin>>ch;
+	switch(ch)
+	{
+		case 1:
+		do{
+			cout<<"\n-----------Stack operations----------------\n";
+			cout<<"***Menu**\n";
+			cout<<"1.Push an element \n2.Pop an element \n3.gettop\n4.isempty\n5.getsize\n6.display\n";
+			cout<<"Please enter your choice\n";
+			cin>>ch1;
+			switch(ch1)
+			{
+				case 1:
+					cout<<"Enter an element\t";
+					cin>>element;
+					stack1.push_back(element);
+					cout<<element<<" was successfully added to the stack\n";
+					break;
+				case 2:
+					element = stack1.back();
+					stack1.pop_back();
+					cout<<element<<" was successfully poped from the stack\n";
+					break;
+				case 3:
+					element=stack1.back();
+					cout<<element<<" is the topmost element\n";
+					break;
+				case 4:
+					if(stack1.empty())
+					{
+						cout<<"\nStack is empty\n";
+					}
+					else
+					{
+						cout<<"\nStack is not empty\n";
+					}
+					break;
+				case 5:
+					element=stack1.size();
+					cout<<"Size of stack is "<<element;
+					break;
+				case 6:
+					cout<<"\nStack is\n";
+					for(itre=stack1.begin();itre!=stack1.end();itre++)
+					{
+						cout<<*itre;
+					}
+					break;
+				default:
+            			cout<<"Sorry bad choice!!!!!!";
+            			break;
+			}
+			cout<<"\nDo you wish to continue? (Y/N)\n";
+			cin>>ans;
+		}while(ans=='Y');
+		break;
+	case 2:
+		do{
+			cout<<"\n-----------Queue operations----------------\n";
+			cout<<"***Menu**\n";
+			cout<<"1.Push an element \n2.Pop an element \n3.isempty\n4.get front\n5.get rear\n6.Getsize\n7.Display";
+			cout<<"\nPlease enter your choice\n";
+			cin>>ch2;
+			switch(ch2)
+			{
+				case 1:
+					cout<<"Enter an element\t";
+					cin>>element;
+					que1.push_back(element);
+					cout<<element<<" was successfully added to the Queue\n";
+					break;
+				case 2:
+					element=que1.front();
+					que1.pop_front();
+					cout<<element<<" was successfully poped from the Queue\n";
+					break;
+				case 3:
+					if(que1.empty())
+					{
+						cout<<"\nQueue is empty\n";
+					}
+					else
+					{
+						cout<<"\nQueue is not empty\n";
+					}
+					break;
+				case 4:
+						element=que1.front();
+						cout<<"element to the front is :"<<element;
+						break;
+				case 5:
+						element=que1.back();
+						cout<<"element to the back is :"<<element;
+						break;
+
+				case 6:
+
+					element=que1.size();
+					cout<<"Size of Queue is "<<element;
+					break;
+				case 7:
+				cout<<"\nQueue is\n";
+					for(itre=que1.begin();itre!=que1.end();itre++)
+					{
+						cout<<*itre<<endl;
+
+					}
+					break;
+				default:
+            			cout<<"Sorry bad choice!!!!!!";
+            			break;
+
+			}
+			cout<<"\nDo you wish to continue? (Y/N)\n";
+			cin>>ans1;
+		}while(ans1=='Y');
+
+		cout<<"\nDo you wish to continue? (Y/N)\n";
+		cin>>ans2;
+
+	}
+}while(ans2=='Y');
+
+}
