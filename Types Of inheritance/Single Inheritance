@@ -1,0 +1,52 @@
+// C++ program to demonstrate implementation of Inheritance
+#include <bits/stdc++.h>
+
+using namespace std;
+
+class teacher {                   //base class 
+    char name[20];
+    char sub[20];
+    public :
+    void getdata();
+    void putdata();
+};
+void teacher::getdata(){                           // functions defined outside the class
+    cout<<"Enter name:\n";
+    cin>>name;
+    cout<<"Enter subject\n";
+    cin>>sub;
+}
+void teacher::putdata(){
+    cout<<"\n Teacher name ="<<name;
+    cout<<"\n Subject ="<<sub;
+}
+class student:public teacher{                // inherited class
+    char name[20];
+    int age;
+    int rno;
+    public:
+    void getdata(){
+        teacher::getdata();                                 // functions defined inside class
+        cout<<"enter name of studnet:";
+        cin>>name;
+        cout<<"enter age: ";
+        cin>>age;
+        cout<<"enter roll number:";
+        cin>>rno;
+    }
+    void putdata(){
+        teacher::putdata();
+        cout<<"\n Student name="<<name;
+        cout<<"\n Student age ="<<age;
+        cout<<"\n student roll number="<<rno;
+    }
+};
+
+    int main(){                //driver code
+        student s1;            // object of inherited class
+        s1.getdata();
+        s1.putdata();
+        
+        return(0);
+
+    }
