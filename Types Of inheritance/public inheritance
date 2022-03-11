@@ -1,0 +1,38 @@
+#include <bits/stdc++.h>
+using namespace std;
+ 
+class B {
+    int a ;                  // a is private variable it can not be directly inheritrd to  class D
+    public :
+    int b;
+    void get_ab(){
+        a=5;
+        b=10;
+    }
+    int get_a(){
+        return(a);           // get_a is function which returns the value of a it is uesd to inherit a in class D
+    }
+    void show_a(){
+        cout<<"a="<<a<<"\n";     // show_a functions display the value of a when it is called 
+    }
+};
+class D: public B{           // public keyword is used for public inheritance 
+    int c;
+    public:
+    void add(){
+        c=b+get_a();
+    }
+    void display(){
+        cout<<"a="<<get_a()<<"\n";
+        cout<<"b="<<b<<"\n";
+        cout<<"c="<<c<<"\n";
+    }
+};
+int main (){
+    D d1 ;
+    d1.get_ab();
+    d1.add();
+    d1.show_a();
+    d1.display();
+    return 0;   
+}
